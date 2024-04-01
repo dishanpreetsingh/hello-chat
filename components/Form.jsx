@@ -49,6 +49,9 @@ const Form = ({ type }) => {
       if(res.error){
         toast.error("Invalid email or password");
       }
+      if(!res){
+        toast.error("Server error !!!!!!!!!!!!");
+      }
     }
    }
   return (
