@@ -37,15 +37,15 @@ const Form = ({ type }) => {
 
     if(type === "login"){
       console.log('data :>> ', data);
-      const res = await signIn("credentials",{
-        ...data,
-        redirect:false,
-      })
-console.log('res :>> ', res);
-      if(res.ok){
-        router.push("/chats");
-      }
-
+//       const res = await signIn("credentials",{
+//         ...data,
+//         redirect:false,
+//       })
+// console.log('res :>> ', res);
+//       if(res.ok){
+//         router.push("/chats");
+//       }
+console.log('ffffffffffffffffffffffff :>> ');
       if(res.error){
         toast.error("Invalid email or password");
       }
