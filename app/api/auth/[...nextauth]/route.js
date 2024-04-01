@@ -39,10 +39,10 @@ console.log('RRRRRRRRRRRRRRRRRRRRRRRRRRRR');
   callbacks:{
     async session({session}){
       const mongodbUser = await User.findOne({email: session.user.email })
-console.log('mongodbUser :>> ', mongodbUser);
+      console.log('mongodbUser :>> ', mongodbUser);
       session.user = {...session.user, ...mongodbUser._doc}
-
-      return session;
+      console.log('session :>> ', session);
+      return "lllllllllllllllllllllll";
     }
   }
 });
