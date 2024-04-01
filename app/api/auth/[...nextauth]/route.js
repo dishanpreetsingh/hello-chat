@@ -1,3 +1,4 @@
+import logger from "@logger";
 import User from "@models/User";
 import { connectToDB } from "@mongodb/connection";
 import { compare } from "bcryptjs";
@@ -14,9 +15,11 @@ const handler = NextAuth({
         }
 
         await connectToDB()
+        logger.info('API request processed successfully ffffffffffffffffffffff',);
 
+console.log('RRRRRRRRRRRRRRRRRRRRRRRRRRRR');
         const user = await User.findOne({ email: credentials.email });
-
+        console.log('user',user);
         if(!user || !user?.password) {
           throw new Error("Invalid email or password");
         }
@@ -36,7 +39,7 @@ const handler = NextAuth({
   callbacks:{
     async session({session}){
       const mongodbUser = await User.findOne({email: session.user.email })
-
+console.log('mongodbUser :>> ', mongodbUser);
       session.user = {...session.user, ...mongodbUser._doc}
 
       return session;
